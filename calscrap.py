@@ -1,6 +1,8 @@
 from bs4 import BeautifulSoup
 from numpy import double
 import requests
+import matplotlib.pyplot as plt
+import numpy as np
 
 soup = BeautifulSoup(requests.get('http://www.laalmanac.com/weather/we13.php').content,'html.parser')
 
@@ -17,5 +19,12 @@ for x in range(len(values)):
         data[str(values[x-1].string)] = ((values[x].string))
 #deleting left over data
 del data['+6.59']
+for x in data:
+    if data[x] == None:
+        data[x] = 0.0
+    data[x] = float(str(data[x]))
 
-print(data)
+
+plt.plot([x for x in data],[data[x] for x in data])
+plt.ylabel("California Rain Graph")
+plt.show()
