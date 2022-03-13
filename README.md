@@ -1,1 +1,1 @@
-# calrain
+# calrain - California Rain data chart
