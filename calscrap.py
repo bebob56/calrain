@@ -24,7 +24,9 @@ for x in data:
         data[x] = 0.0
     data[x] = float(str(data[x]))
 
-
-plt.plot([x for x in data],[data[x] for x in data])
+# plotting the years from 1887 and onwards. This x value is 0 to the length of the graph. 
+# Cannot use strings due to the fact that it does calculations based on the size of the graph.
+# If string is used then it just outputs all of the strings which leads to x axis bloatage
+plt.plot([ x + 1877 for x in range(len(data))],[data[x] for x in data])
 plt.ylabel("California Rain Graph")
 plt.show()
